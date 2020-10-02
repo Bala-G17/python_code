@@ -17,7 +17,7 @@ def dictionary(word):
         else:
             return 'please double check the word'       
     else:
-        return "sorry, the word dose not exit."
+        return "sorry, the word dose not exit. test commit"
 word =input('enter the word: ')
 output = dictionary(word)
 if type(output) == list:
