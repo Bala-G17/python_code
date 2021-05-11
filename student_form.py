@@ -18,13 +18,13 @@ e7=StringVar()
 e8=StringVar()
 def register():
     dbid=""
-    StudentID=e1.get()
-    select="select StudentID from detail where StudentID='%s'"%(StudentID)
+    id=e1.get()
+    select="select StudentID from detail where StudentID='%s'"%(id)
     cur.execute(select)
     result=cur.fetchall()
     for i in result:
         dbid=i[0]
-    if(StudentID==dbid):
+    if(int(id)==dbid):
         messagebox.askokcancel("Information","record Already exists")
     else:
         Insert=" Insert into detail(StudentID,StudentName,HomeAddress,ContactNumber,SubjectTakencode,SubjectTaken,ParentName,ParentContact) values(%s,%s,%s,%s,%s,%s,%s,%s)"
@@ -52,39 +52,7 @@ def register():
         else:
             messagebox.askokcancel("Information","Some feilds left blank")
             
-    
-'''
-def check():
-    id=e1.get()
-    num=e4.get()
-    
-    code=e6.get()
-    if id.isdigit():
-        if len(id)==0:
-            messagebox.showinfo("info","Please Fill Student ID")
-            #print("Fill all the Information")
-        if len(e2.get())==0:
-            messagebox.showinfo("info","Please Fill Student Name")
-        if len(e3.get())==0:
-            messagebox.showinfo("Info","Please Fill Address")
-        if num.isdigit():
-            pass
-        else:
-            messagebox.showerror("Error","only give your 10 digit number")
-        if code.isdigit():
-            pass
-        else:
-            messagebox.showerror("Error","Code contain both letters and numbers")
-        if len(e7.get())==0:
-            messagebox.showinfo("Info","Please Parent Name")
-        if len(e8.get())==0:
-            messagebox.showinfo("Info","Please parent contact")
-    else:
-        messagebox.showerror("Error","Student ID contain only digit")
-        
-    #if len(e2.get())==0:
-     #   messagebox.showinfo("info","Please Fill Student Name")
-'''
+
 label1 = Label(window,text="NEW STUDENT REGISTRATION").place(x=200,y=5)
 label2=Label(window,text="Student ID").place(x=20,y=50)
 entry1=Entry(window,textvariable=e1).place(x=210,y=50)
