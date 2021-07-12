@@ -6,57 +6,83 @@ main.geometry("800x450")
 
 yscore=[]
 Cscore=[]
+count=[]
 
 def rock():
-	label4.configure(text="Your Selected:Rock")
-	option=["Rock","Paper","Scissor"]
-	cc=random.choice(option)
-	label6.configure(text="Computer Selected:"+cc)
-	if(cc=="Rock"):
-		yscore.append(0)
-		Cscore.append(0)
-	elif(cc=="Paper"):
-		yscore.append(0)
-		Cscore.append(1)
-	else:
-		yscore.append(1)
-		Cscore.append(0)
-	label5.configure(text="Your Score:"+str(sum(yscore)))
-	label7.configure(text="Computer Score:"+str(sum(Cscore)))
+	if sum(count)<10:
+		count.append(1)
+		label4.configure(text="Your Selected:Rock")
+		option=["Rock","Paper","Scissor"]
+		cc=random.choice(option)
+		label6.configure(text="Computer Selected:"+cc)
+		if(cc=="Rock"):
+			yscore.append(0)
+			Cscore.append(0)
+		elif(cc=="Paper"):
+			yscore.append(0)
+			Cscore.append(1)
+		else:
+			yscore.append(1)
+			Cscore.append(0)
+		label5.configure(text="Your Score:"+str(sum(yscore)))
+		label7.configure(text="Computer Score:"+str(sum(Cscore)))
+		label10.configure(text="Chances : "+str(sum(count)))
+		if sum(count)==10:
+			result()
 
 def paper():
-	label4.configure(text="Your Selected:Paper")
-	option=["Rock","Paper","Scissor"]
-	cc=random.choice(option)
-	label6.configure(text="Computer Selected:"+cc)
-	if(cc=="Paper"):
-		yscore.append(0)
-		Cscore.append(0)
-	elif(cc=="Scissor"):
-		yscore.append(0)
-		Cscore.append(1)
-	else:
-		yscore.append(1)
-		Cscore.append(0)
-	label5.configure(text="Your Score:"+str(sum(yscore)))
-	label7.configure(text="Computer Score:"+str(sum(Cscore)))
+	if sum(count)<10:
+		count.append(1)
+		label4.configure(text="Your Selected:Paper")
+		option=["Rock","Paper","Scissor"]
+		cc=random.choice(option)
+		label6.configure(text="Computer Selected:"+cc)
+		if(cc=="Paper"):
+			yscore.append(0)
+			Cscore.append(0)
+		elif(cc=="Scissor"):
+			yscore.append(0)
+			Cscore.append(1)
+		else:
+			yscore.append(1)
+			Cscore.append(0)
+		label5.configure(text="Your Score:"+str(sum(yscore)))
+		label7.configure(text="Computer Score:"+str(sum(Cscore)))
+		label10.configure(text="Chances : "+str(sum(count)))
+		if sum(count)==10:
+			result()
 
 def scissor():
-	label4.configure(text="Your Selected:Scissor")
-	option=["Rock","Paper","Scissor"]
-	cc=random.choice(option)
-	label6.configure(text="Computer Selected:"+cc)
-	if(cc=="Scissor"):
-		yscore.append(0)
-		Cscore.append(0)
-	elif(cc=="Rock"):
-		yscore.append(0)
-		Cscore.append(1)
+	if sum(count)<10:
+		count.append(1)
+		label4.configure(text="Your Selected:Scissor")
+		option=["Rock","Paper","Scissor"]
+		cc=random.choice(option)
+		label6.configure(text="Computer Selected:"+cc)
+		if(cc=="Scissor"):
+			yscore.append(0)
+			Cscore.append(0)
+		elif(cc=="Rock"):
+			yscore.append(0)
+			Cscore.append(1)
+		else:
+			yscore.append(1)
+			Cscore.append(0)
+		label5.configure(text="Your Score:"+str(sum(yscore)))
+		label7.configure(text="Computer Score:"+str(sum(Cscore)))
+		label10.configure(text="Chances : "+str(sum(count)))
+		if sum(count)==10:
+			result()
+
+def result():
+	a=sum(yscore)
+	b=sum(Cscore)
+	if a == b:
+		label9.configure(text="Tie")
+	elif a<b:
+		label9.configure(text="Computer Win !",fg="red")
 	else:
-		yscore.append(1)
-		Cscore.append(0)
-	label5.configure(text="Your Score:"+str(sum(yscore)))
-	label7.configure(text="Computer Score:"+str(sum(Cscore)))
+		label9.configure(text="You Win !",fg="green")
 
 label1=Label(text="Rock Paper Scissor",fg="blue",font=("arial",30))
 label1.place(x=240,y=20)
@@ -71,7 +97,7 @@ button1=Button(text="Rock",height=2,width=15,bg="pink",font=("arial",10,"bold"),
 button1.place(x=200,y=150)
 button2=Button(text="Paper",height=2,width=15,bg="skyblue",font=("arial",10,"bold"),command=paper)
 button2.place(x=400,y=150)
-button3=Button(text="Scissor",height=2,width=15,bg="gray",font=("arial",10,"bold"),command=scissor)
+button3=Button(text="Scissor",height=2,width=15,bg="lightgreen",font=("arial",10,"bold"),command=scissor)
 button3.place(x=600,y=150)
 
 label4=Label(text="Your Selected:---",font=("arial",13))
@@ -82,5 +108,11 @@ label6=Label(text="Computer Selected:---",font=("arial",13))
 label6.place(x=180,y=320)
 label7=Label(text="Computer Score:-",font=("arial",13))
 label7.place(x=410,y=320)
+label9=Label(text="",font=("arial",13))
+label9.place(x=390,y=400)
+label10=Label(text="Chances : ",font=("arial",13))
+label10.place(x=50,y=400)
+label11=Label(text="You Have Only 10 Chances...",fg="blue",font=("arial",13))
+label11.place(x=50,y=360)
 
 main.mainloop()
