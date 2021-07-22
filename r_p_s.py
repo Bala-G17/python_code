@@ -26,7 +26,7 @@ def rock():
 			Cscore.append(0)
 		label5.configure(text="Your Score:"+str(sum(yscore)))
 		label7.configure(text="Computer Score:"+str(sum(Cscore)))
-		label10.configure(text="Chances : "+str(sum(count)))
+		label10.configure(text="count : "+str(sum(count)))
 		if sum(count)==10:
 			result()
 
@@ -48,7 +48,7 @@ def paper():
 			Cscore.append(0)
 		label5.configure(text="Your Score:"+str(sum(yscore)))
 		label7.configure(text="Computer Score:"+str(sum(Cscore)))
-		label10.configure(text="Chances : "+str(sum(count)))
+		label10.configure(text="count : "+str(sum(count)))
 		if sum(count)==10:
 			result()
 
@@ -70,7 +70,7 @@ def scissor():
 			Cscore.append(0)
 		label5.configure(text="Your Score:"+str(sum(yscore)))
 		label7.configure(text="Computer Score:"+str(sum(Cscore)))
-		label10.configure(text="Chances : "+str(sum(count)))
+		label10.configure(text="count : "+str(sum(count)))
 		if sum(count)==10:
 			result()
 
@@ -110,7 +110,7 @@ label7=Label(text="Computer Score:-",font=("arial",13))
 label7.place(x=410,y=320)
 label9=Label(text="",font=("arial",13))
 label9.place(x=390,y=400)
-label10=Label(text="Chances : ",font=("arial",13))
+label10=Label(text="count : ",font=("arial",13))
 label10.place(x=50,y=400)
 label11=Label(text="You Have Only 10 Chances...",fg="blue",font=("arial",13))
 label11.place(x=50,y=360)
